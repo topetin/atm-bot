@@ -1,4 +1,5 @@
 import copy
+from config.token import googleApiKey
 
 def formatPhotoUrl(userLat, userLon, atms):
     base = "https://maps.googleapis.com/maps/api/staticmap?"
@@ -7,7 +8,7 @@ def formatPhotoUrl(userLat, userLon, atms):
     maptype = "&maptype=roadmap"
     userMarker = f"&markers=color:blue%7C{userLat},{userLon}"
     atmMarkers = []
-    key = "&key=" #Google API Key
+    key = f"&key={googleApiKey}" #Google API Key
 
     for atm in atms:
         atmLat = atm.get('lat')

@@ -1,10 +1,10 @@
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler, MessageHandler, Filters
-from config.token import token
+from config.token import botToken
 from bot_handler.bot_handler import startBot, unknownCommand, getInlineCommand, onLocation, checkLocation, keepLocation, changeLocation
 
 
 if __name__ == '__main__':
-    updater = Updater(token, use_context = True)
+    updater = Updater(botToken, use_context = True)
     dispatcher = updater.dispatcher
     print("Bot started")
 

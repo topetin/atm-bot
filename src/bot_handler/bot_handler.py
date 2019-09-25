@@ -1,6 +1,6 @@
 from telegram import ReplyKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent, KeyboardButton
 from services.atm_service.atm_service import findAtms
-from utils.element_formatter import formatPhotoUrl, formatAtmName
+from utils.element_formatter import formatPhotoUrl, formatAtmName, formatDistance
 from data_handler.data_handler import saveAtmData
 import re
 import copy
@@ -91,7 +91,7 @@ def sendAtmsToUser(update, context, atmData, userLat, userLon):
     for atm in atmData:
         index = atmData.index(atm)
         saveAtmData(atm.get('red'), atm.get('id'), index)
-        msg = f"{index+1}. Banco: {atm.get('banco')}. Direccion: {atm.get('ubicacion')}"
+        msg = f"{index+1}. Banco: {atm.get('banco')}. Direccion: {atm.get('ubicacion')}."
         context.bot.send_message(
             chat_id = update.message.chat_id,
             text = msg
